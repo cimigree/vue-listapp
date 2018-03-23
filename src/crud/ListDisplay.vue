@@ -5,6 +5,7 @@
 <script>
 import List from './List.vue'
 import {itemsRef} from '../firebase'
+import {itemsRefByDate} from '../firebase'
 
 export default {
   components: {
@@ -17,7 +18,7 @@ export default {
     }
   },
   firebase: {
-    listItems: itemsRef 
+    listItems: itemsRefByDate 
   }
 }
 </script>

@@ -15,7 +15,8 @@
           <td> <input
 	            type="checkbox"
               value="true"
-              v-model="item.checked"> </td>
+              v-model="item.checked"
+              @click="checkOffList(index)"> </td>
           <td>{{item.name}}</td>
           <td> {{item.quantity}}</td>
           <td>{{item.note}}</td>
@@ -27,6 +28,7 @@
 </template>
 <script>
 import {itemsRef} from '../firebase'
+import moment from 'moment'
 
 export default {
   props: ['listItems'],
@@ -55,6 +57,30 @@ export default {
     },
     navigateToEdit(id) {
       this.$router.push({path: `/item/${id}`})
+    },
+    checkOffList(id){
+      const item = this.listItems[id]
+      const copy = {...item};
+      const timing = item.selectedFrequency
+      switch(timing) {
+        case 'weekly':
+          copy.date= moment().add(7, 'days').format('x')
+          console.log(copy.date)
+          break;
+        case 'bi-weekly':
+          copy.date= moment().add(14, 'days').format('x')
+          break;
+        case 'monthly':
+          copy.date= moment().add(1, 'months').format('x')
+          break;
+        case 'as-needed':
+          copy.date= moment().add(3, 'months').format('x')
+        default:
+          copy.date= ''
+        }
+      const key = copy['.key'];
+        delete copy['.key']
+        itemsRef.child(key).set(copy);
     },
     deleteItem(index) {
       const item= this.listItems[index]

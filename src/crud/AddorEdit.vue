@@ -78,6 +78,7 @@
 
 <script>
   import {itemsRef} from '../firebase'
+  import moment from 'moment'
   export default {
     props: ['id'],
     data() {
@@ -96,7 +97,7 @@
     },
     methods: {
       submit() {
-        this.listItem.date=Date.now();
+        this.listItem.date=moment().format('x');
         if(this.id == undefined) {
           this.createItem()
         } else {

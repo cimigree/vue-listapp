@@ -5,6 +5,7 @@
 <script>
 import List from './List.vue'
 import {itemsRef} from '../firebase'
+import {itemsRefByDate} from '../firebase'
 
 export default {
   components: {
@@ -18,7 +19,7 @@ export default {
   },
   methods: {
     setList(){
-      this.$bindAsArray('listItems', itemsRef.orderByChild(this.store).equalTo(true))
+      this.$bindAsArray('listItems', itemsRefByDate.orderByChild(this.store).equalTo(true))
     }
   },
   mounted() {

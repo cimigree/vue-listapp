@@ -19,4 +19,7 @@
 </script>
 
 <style>
+container {
+    width: 100%;
+}
 </style>

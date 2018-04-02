@@ -1,6 +1,6 @@
 {
   "name": "list-app",
-  "description": "Generate and view shopping lists for multiple users",
+  "description": "Generate and view shopping lists for multiple users by store",
   "author": "Cindy Green <cimigreen@hotmail.com>",
   "private": true,
   "scripts": {
@@ -13,7 +13,8 @@
     "vue": "^2.5.11",
     "vue-resource": "1.5.0",
     "vue-router": "^3.0.1",
-    "vuefire": "^1.4.5"
+    "vuefire": "^1.4.5",
+    "vuex": "^3.0.1"
   },
   "browserslist": [
     "> 1%",

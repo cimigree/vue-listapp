@@ -11,6 +11,7 @@ export const routes = [
     {path: ':store', component: StoreList, props: true}
   ] },
   {path: '/item', component: AddorEdit },
-  {path: '/item/:id', component: AddorEdit, props: true }
+  {path: '/item/:id', component: AddorEdit, props: true },
+  {path: '*', redirect: '/' }
 ]
 

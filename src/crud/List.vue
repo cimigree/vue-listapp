@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container">
     <button @click="relocate"> Escape </button>
     <table class="table">
       <tr>
